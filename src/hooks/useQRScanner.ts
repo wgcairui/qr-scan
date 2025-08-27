@@ -6,6 +6,12 @@ import { QrScannerConfig, QrScanResult } from '@/types/scanner';
 import { formatScanResult, saveToHistory } from '@/utils/qr-scanner';
 import toast from 'react-hot-toast';
 
+interface Html5QrcodeInstance {
+  start: (cameraId: string | { facingMode: string }, config: QrScannerConfig, successCallback: (text: string, result: unknown) => void, errorCallback: (error: string) => void) => Promise<void>;
+  stop: () => Promise<void>;
+  clear: () => void;
+}
+
 interface UseQRScannerOptions {
   onSuccess?: (result: QrScanResult) => void;
   onError?: (error: string) => void;
@@ -26,7 +32,7 @@ export const useQRScanner = (options: UseQRScannerOptions = {}) => {
     elementId = 'qr-scanner'
   } = options;
 
-  const html5QrCodeRef = useRef<unknown>(null);
+  const html5QrCodeRef = useRef<Html5QrcodeInstance | null>(null);
   const {
     isScanning,
     isLoading,

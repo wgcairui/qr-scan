@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { QrScannerStore, QrScannerConfig } from '@/types/scanner';
+import { QrScannerStore } from '@/types/scanner';
 import { formatScanResult, saveToHistory, getHistory, saveLastCamera, getLastCamera } from '@/utils/qr-scanner';
 
 export const useScannerStore = create<QrScannerStore>((set) => ({
