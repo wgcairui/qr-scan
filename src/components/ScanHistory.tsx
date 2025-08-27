@@ -1,7 +1,6 @@
 'use client';
 
 import { useScannerStore } from '@/store/scanner-store';
-import { QrScanResult } from '@/types/scanner';
 import { copyToClipboard, detectContentType } from '@/utils/qr-scanner';
 import toast from 'react-hot-toast';
 

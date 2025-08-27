@@ -25,8 +25,8 @@ export default function QRScanner({ onScanSuccess, className = '' }: QRScannerPr
       onScanSuccess?.(result);
       toast.success(`Scanned: ${result.text.substring(0, 50)}${result.text.length > 50 ? '...' : ''}`);
     },
-    onError: (error) => {
-      toast.error(error);
+    onError: (errorMsg) => {
+      toast.error(errorMsg);
     },
     config: {
       fps: 10,
@@ -58,7 +58,7 @@ export default function QRScanner({ onScanSuccess, className = '' }: QRScannerPr
     if (hasPermission && !isScanning && activeTab === 'camera') {
       handleStartScanning();
     }
-  }, [hasPermission, activeTab]);
+  }, [hasPermission, activeTab, isScanning, handleStartScanning]);
 
   return (
     <div className={`max-w-md mx-auto bg-white rounded-2xl shadow-xl overflow-hidden ${className}`}>

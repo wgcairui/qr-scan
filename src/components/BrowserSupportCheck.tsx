@@ -119,7 +119,7 @@ export default function BrowserSupportCheck({ onSupported, children }: BrowserSu
               <h4 className="font-medium text-blue-800 mb-2">Alternative Option:</h4>
               <p className="text-blue-700 text-sm">
                 You can still use the <strong>File Upload</strong> feature to scan QR codes from images, 
-                even if camera access isn't available.
+                even if camera access isn&apos;t available.
               </p>
             </div>
 

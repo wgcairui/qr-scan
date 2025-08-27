@@ -34,7 +34,7 @@ export default function FileUpload({ className = '' }: FileUploadProps) {
     try {
       await scanFromFile(file);
       toast.success('File processed successfully!');
-    } catch (error) {
+    } catch {
       toast.error('Failed to scan QR code from image');
     } finally {
       setIsProcessing(false);
@@ -142,7 +142,7 @@ export default function FileUpload({ className = '' }: FileUploadProps) {
         <ul className="text-sm text-gray-600 space-y-1">
           <li>• Ensure the QR code is clearly visible</li>
           <li>• Avoid blurry or low-resolution images</li>
-          <li>• Make sure there's good contrast</li>
+          <li>• Make sure there&apos;s good contrast</li>
           <li>• Crop the image to focus on the QR code</li>
         </ul>
       </div>

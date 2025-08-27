@@ -26,7 +26,7 @@ export const useQRScanner = (options: UseQRScannerOptions = {}) => {
     elementId = 'qr-scanner'
   } = options;
 
-  const html5QrCodeRef = useRef<any>(null);
+  const html5QrCodeRef = useRef<unknown>(null);
   const {
     isScanning,
     isLoading,
@@ -37,8 +37,9 @@ export const useQRScanner = (options: UseQRScannerOptions = {}) => {
     clearError
   } = useScannerStore();
 
-  const handleScanSuccess = useCallback((decodedText: string, decodedResult: any) => {
-    const result = formatScanResult(decodedText, decodedResult?.result?.format?.formatName);
+  const handleScanSuccess = useCallback((decodedText: string, decodedResult: unknown) => {
+    const formatName = (decodedResult as any)?.result?.format?.formatName;
+    const result = formatScanResult(decodedText, formatName);
     const updatedHistory = saveToHistory(result);
     
     // Update store

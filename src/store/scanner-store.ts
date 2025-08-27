@@ -1,8 +1,8 @@
 import { create } from 'zustand';
-import { QrScannerStore, QrScanResult, QrScannerConfig } from '@/types/scanner';
+import { QrScannerStore, QrScannerConfig } from '@/types/scanner';
 import { formatScanResult, saveToHistory, getHistory, saveLastCamera, getLastCamera } from '@/utils/qr-scanner';
 
-export const useScannerStore = create<QrScannerStore>((set, get) => ({
+export const useScannerStore = create<QrScannerStore>((set) => ({
   // State
   isScanning: false,
   isLoading: false,
@@ -14,7 +14,7 @@ export const useScannerStore = create<QrScannerStore>((set, get) => ({
   selectedCameraId: null,
 
   // Actions
-  startScanning: async (config?: QrScannerConfig) => {
+  startScanning: async (_config?: QrScannerConfig) => {
     set({ isLoading: true, error: null });
     
     try {
