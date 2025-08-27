@@ -13,8 +13,8 @@ export const useScannerStore = create<QrScannerStore>((set) => ({
   availableCameras: [],
   selectedCameraId: null,
 
-  // Actions
-  startScanning: async (_config?: QrScannerConfig) => {
+  // Actions  
+  startScanning: async () => {
     set({ isLoading: true, error: null });
     
     try {

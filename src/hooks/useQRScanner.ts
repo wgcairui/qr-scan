@@ -38,7 +38,7 @@ export const useQRScanner = (options: UseQRScannerOptions = {}) => {
   } = useScannerStore();
 
   const handleScanSuccess = useCallback((decodedText: string, decodedResult: unknown) => {
-    const formatName = (decodedResult as any)?.result?.format?.formatName;
+    const formatName = (decodedResult as { result?: { format?: { formatName?: string } } })?.result?.format?.formatName;
     const result = formatScanResult(decodedText, formatName);
     const updatedHistory = saveToHistory(result);
     

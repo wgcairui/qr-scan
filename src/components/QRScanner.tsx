@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useQRScanner } from '@/hooks/useQRScanner';
 import { useScannerStore } from '@/store/scanner-store';
 import { QrScanResult } from '@/types/scanner';
@@ -37,21 +37,21 @@ export default function QRScanner({ onScanSuccess, className = '' }: QRScannerPr
     }
   });
 
-  const handleStartScanning = async () => {
+  const handleStartScanning = useCallback(async () => {
     try {
       await start();
-    } catch (error) {
+    } catch {
       toast.error('Failed to start camera');
     }
-  };
+  }, [start]);
 
-  const handleStopScanning = async () => {
+  const handleStopScanning = useCallback(async () => {
     try {
       await stop();
-    } catch (error) {
-      console.warn('Error stopping scanner:', error);
+    } catch (err) {
+      console.warn('Error stopping scanner:', err);
     }
-  };
+  }, [stop]);
 
   // Auto-start camera scanning on mount if permission exists
   useEffect(() => {
