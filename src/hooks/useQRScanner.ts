@@ -6,11 +6,9 @@ import { QrScannerConfig, QrScanResult } from '@/types/scanner';
 import { formatScanResult, saveToHistory } from '@/utils/qr-scanner';
 import toast from 'react-hot-toast';
 
-interface Html5QrcodeInstance {
-  start: (cameraId: string | { facingMode: string }, config: QrScannerConfig, successCallback: (text: string, result: unknown) => void, errorCallback: (error: string) => void) => Promise<void>;
-  stop: () => Promise<void>;
-  clear: () => void;
-}
+// Use any type for Html5Qrcode instance to avoid complex type matching
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type Html5QrcodeInstance = any;
 
 interface UseQRScannerOptions {
   onSuccess?: (result: QrScanResult) => void;
