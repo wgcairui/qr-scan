@@ -16,7 +16,6 @@ export const metadata: Metadata = {
   creator: "Quick QR Scanner",
   publisher: "Quick QR Scanner",
   robots: "index, follow",
-  viewport: "width=device-width, initial-scale=1",
   icons: {
     icon: [
       { url: "/qr-icon.svg", type: "image/svg+xml" },
@@ -36,6 +35,11 @@ export const metadata: Metadata = {
     title: "Quick QR Scanner",
     description: "Fast & reliable QR code scanner for all devices",
   },
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({

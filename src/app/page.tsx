@@ -25,7 +25,6 @@ export default function Home() {
 							</div>
 							<div>
 								<h1 className="text-xl font-bold text-gray-800">Quick QR Scanner</h1>
-								<p className="text-sm text-gray-600">Fast & Reliable QR Code Reader</p>
 							</div>
 						</div>
 
@@ -52,12 +51,6 @@ export default function Home() {
 			<main className="max-w-4xl mx-auto px-4 py-8">
 				{activeView === "scanner" ? (
 					<div className="space-y-8">
-						{/* Hero Section */}
-						<div className="text-center space-y-4">
-							<h2 className="text-3xl font-bold text-gray-800 sm:text-4xl">Scan QR Codes Instantly</h2>
-							<p className="text-lg text-gray-600 max-w-2xl mx-auto">Use your camera to scan QR codes in real-time or upload an image file. Fast, secure, and works on all devices.</p>
-						</div>
-
 						{/* Scanner Component */}
 						<div className="flex justify-center">
 							<QRScanner onScanSuccess={handleScanSuccess} />
@@ -69,26 +62,6 @@ export default function Home() {
 					</div>
 				)}
 			</main>
-
-			{/* Footer */}
-			<footer className="bg-white/50 mt-16">
-				<div className="max-w-4xl mx-auto px-4 py-8">
-					<div className="text-center space-y-4">
-						<p className="text-gray-600 text-sm">Built with Next.js, React, and html5-qrcode library</p>
-						<div className="flex justify-center gap-6 text-sm">
-							<a href="https://github.com/mebjas/html5-qrcode" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-700 transition-colors">
-								html5-qrcode
-							</a>
-							<a href="https://nextjs.org" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-700 transition-colors">
-								Next.js
-							</a>
-							<a href="https://tailwindcss.com" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-700 transition-colors">
-								Tailwind CSS
-							</a>
-						</div>
-					</div>
-				</div>
-			</footer>
 		</div>
 	);
 }

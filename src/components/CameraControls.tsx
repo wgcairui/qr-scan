@@ -20,6 +20,9 @@ export default function CameraControls({
   className = ''
 }: CameraControlsProps) {
   const { selectedCameraId } = useScannerStore();
+  console.log(isScanning,
+    availableCameras,selectedCameraId);
+  
 
   return (
     <div className={`space-y-3 ${className}`}>
