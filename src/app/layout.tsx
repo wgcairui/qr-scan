@@ -18,7 +18,12 @@ export const metadata: Metadata = {
   robots: "index, follow",
   viewport: "width=device-width, initial-scale=1",
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/qr-icon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "any" }
+    ],
+    shortcut: "/qr-icon.svg",
+    apple: "/qr-icon.svg",
   },
   openGraph: {
     title: "Quick QR Scanner - Fast & Reliable QR Code Scanner",
