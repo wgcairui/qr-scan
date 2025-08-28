@@ -20,8 +20,8 @@ export default function CameraControls({
   className = ''
 }: CameraControlsProps) {
   const { selectedCameraId } = useScannerStore();
-  console.log(isScanning,
-    availableCameras,selectedCameraId);
+  console.log({isScanning,
+    availableCameras,selectedCameraId});
   
 
   return (
@@ -76,7 +76,7 @@ export default function CameraControls({
               }
             }}
             className="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition-colors"
-            disabled={availableCameras.length < 2}
+            
           >
             🔄
           </button>

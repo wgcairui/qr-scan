@@ -58,36 +58,10 @@ export default function QRScanner({ onScanSuccess, className = "" }: QRScannerPr
 		if (hasPermission && !isScanning && activeTab === "camera") {
 			handleStartScanning();
 		}
-	}, [hasPermission, activeTab, isScanning, handleStartScanning]);
+	}, [hasPermission, activeTab]);
 
 	return (
-		<div className={`max-w-md mx-auto bg-white rounded-2xl shadow-xl overflow-hidden ${className}`}>
-			{/* Tab Navigation */}
-			<div className="flex bg-gray-50">
-				<button
-					onClick={() => {
-						setActiveTab("camera");
-						if (hasPermission) handleStartScanning();
-					}}
-					className={`flex-1 py-4 px-6 text-sm font-medium transition-colors ${
-						activeTab === "camera" ? "bg-blue-500 text-white" : "text-gray-600 hover:text-gray-800"
-					}`}
-				>
-					📷 Camera Scan
-				</button>
-				<button
-					onClick={() => {
-						setActiveTab("file");
-						if (isScanning) handleStopScanning();
-					}}
-					className={`flex-1 py-4 px-6 text-sm font-medium transition-colors ${
-						activeTab === "file" ? "bg-blue-500 text-white" : "text-gray-600 hover:text-gray-800"
-					}`}
-				>
-					📁 File Scan
-				</button>
-			</div>
-
+		<div>
 			<div className="p-6">
 				{/* Error Display */}
 				{error && (
@@ -101,7 +75,7 @@ export default function QRScanner({ onScanSuccess, className = "" }: QRScannerPr
 					</div>
 				)}
 
-				{activeTab === "camera" ? (
+				
 					<div className="space-y-4">
 						{/* Camera Scanner */}
 						<div className="relative">
@@ -177,9 +151,7 @@ export default function QRScanner({ onScanSuccess, className = "" }: QRScannerPr
 							)}
 						</div>
 					</div>
-				) : (
-					<FileUpload className="mb-4" />
-				)}
+				
 
 				{/* Scan Result */}
 				{lastResult && <ScanResult result={lastResult} className="mt-6" />}

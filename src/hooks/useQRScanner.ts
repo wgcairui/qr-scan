@@ -61,11 +61,11 @@ export const useQRScanner = (options: UseQRScannerOptions = {}) => {
 
   const handleScanError = useCallback((errorMessage: string) => {
     // Only show errors that are not common scanning "errors"
-    if (!errorMessage.includes('NotFoundException') && 
-        !errorMessage.includes('No MultiFormat Readers')) {
-      console.warn('QR Scan Error:', errorMessage);
-      onError?.(errorMessage);
-    }
+    // if (!errorMessage.includes('NotFoundException') && 
+    //     !errorMessage.includes('No MultiFormat Readers')) {
+    //   console.warn('QR Scan Error:', errorMessage);
+    //   onError?.(errorMessage);
+    // }
   }, [onError]);
 
   const initializeScanner = useCallback(async () => {
@@ -111,7 +111,7 @@ export const useQRScanner = (options: UseQRScannerOptions = {}) => {
       console.warn('Error stopping scanner:', error);
     }
     await stopScanning();
-  }, [stopScanning]);
+  }, []);
 
   const switchCamera = useCallback(async (cameraId: string) => {
     if (isScanning && html5QrCodeRef.current) {
